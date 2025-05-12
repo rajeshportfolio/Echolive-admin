@@ -1,9 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import './assets/css/select2.min.css'
-import './assets/js/jquery.min.js'
-import './assets/js/select2.min.js'
+
 import './assets/css/style.css'
 import 'flowbite'
 
@@ -19,7 +17,7 @@ app.component('apexchart', VueApexCharts)
 
 app.mount('#app')
 
-$(document).ready(function () {
-  $('#status-select').select2();
-});
+// $(document).ready(function () {
+//   $('#status-select').select2();
+// });
 

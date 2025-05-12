@@ -87,6 +87,16 @@ function toggleDropdown(event: MouseEvent) {
   dropdownOpen.value = !dropdownOpen.value
 }
 
+function handleClickOutsideModal(event: MouseEvent) {
+  if (
+    isModalOpen.value &&
+    dropdownRef.value &&
+    !dropdownRef.value.contains(event.target as Node)
+  ) {
+    isModalOpen.value = false
+  }
+}
+
 
 function handleClickOutside(event: MouseEvent) {
   if (
@@ -107,10 +117,12 @@ function toggleSidebar() {
 
 onMounted(() => {
   document.addEventListener('click', handleClickOutside)
+   document.addEventListener('mousedown', handleClickOutsideModal)
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
+  document.removeEventListener('mousedown', handleClickOutsideModal)
 })
 </script>
 

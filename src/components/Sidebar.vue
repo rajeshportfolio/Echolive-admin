@@ -28,8 +28,11 @@
         <li class="text-[10px] tracking-wider font-bold py-2 px-[26px] uppercase text-gray-400">Dash</li>
 
         <li class="px-[10px]">
-          <router-link to="/dashboard"
-            class="flex items-center text-sm px-[15px] py-[8px] rounded bg-[#2f3a5f] text-[#e2eeff] font-medium gap-[12px] hover:bg-[#2f3a5f] hover:text-white">
+          <router-link to="/dashboard" v-slot="{ isActive }"
+          :class="[
+            'flex items-center text-sm px-[15px] py-[8px] rounded font-medium gap-[12px]',
+            $route.path === '/dashboard' ? 'bg-[#2f3a5f] text-[#e2eeff]' : 'text-[#97aac1] hover:bg-[#2f3a5f] hover:text-white'
+          ]">
             <IconDashboard width="20" height="20" />
             <span class="sidebar-label">Dashboard</span>
           </router-link>
@@ -37,7 +40,10 @@
 
         <li class="px-[10px]">
           <router-link to="/users"
-            class="flex items-center text-sm px-[15px] py-[8px] rounded text-[#97aac1] font-medium gap-[12px] hover:bg-[#2f3a5f] hover:text-white">
+            :class="[
+            'flex items-center text-sm px-[15px] py-[8px] rounded font-medium gap-[12px]',
+            ($route.path === '/users' || $route.path === '/userDetails') ? 'bg-[#2f3a5f] text-[#e2eeff]' : 'text-[#97aac1] hover:bg-[#2f3a5f] hover:text-white'
+          ]">
             <IconUserHexagon width="20" height="20" />
             <span class="sidebar-label">Users</span>
           </router-link>
@@ -45,7 +51,10 @@
 
         <li class="px-[10px]">
           <router-link to="/transactions"
-            class="flex items-center text-sm px-[15px] py-[8px] rounded text-[#97aac1] font-medium gap-[12px] hover:bg-[#2f3a5f] hover:text-white">
+            :class="[
+            'flex items-center text-sm px-[15px] py-[8px] rounded font-medium gap-[12px]',
+            $route.path === '/transactions' ? 'bg-[#2f3a5f] text-[#e2eeff]' : 'text-[#97aac1] hover:bg-[#2f3a5f] hover:text-white'
+          ]">
             <IconBasket width="20" height="20" />
             <span class="sidebar-label">Transactions</span>
           </router-link>
