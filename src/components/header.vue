@@ -54,7 +54,7 @@
     class="transition-opacity duration-150 ease-linear fixed top-0 right-0 left-0 flex justify-center w-full overflow-y-auto overflow-x-hidden bg-[#4c4c5c80] inset-0 z-[1000]">
     <div class="relative w-full max-w-[500px] md:max-w-[800px] max-h-full m-2 xs:m-7">
       <div
-        class="flex items-center relative bg-white px-6 py-3 rounded-[0.3rem] shadow-boxCardShadow text-gray800custom">
+        class="searchbar flex items-center relative bg-white px-6 py-3 rounded-[0.3rem] shadow-boxCardShadow text-gray800custom">
         <IconSearch width="22" height="22" />
         <input type="search" class="flex-1 border-none outline-none py-2 px-3 text-[13px]"
           placeholder="Search for actions, people..." />
@@ -113,3 +113,21 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
 })
 </script>
+
+<style scoped>
+.searchbar {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-1.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
